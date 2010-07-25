@@ -4,7 +4,7 @@ development:
   adapter: mysql
   database: myblog_development
   username: root
-  password: marvin
+  password: 
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -14,12 +14,12 @@ test:
   adapter: mysql
   database: myblog_development
   username: root
-  password: marvin
+  password: 
   host: localhost
 
 production:
   adapter: mysql
   database: myblog_development
   username: root
-  password: marvin
+  password: 
   host: localhost
