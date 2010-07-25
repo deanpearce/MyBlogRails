@@ -1,0 +1,26 @@
+
+<div style="width:100%; text-align:right; background-color:#EBEBEB;">
+
+	<% if session[:username] %>
+	Welcome, <%=session[:username]%> &nbsp;<a href="/posts" style="color:#000000;">[Dashboard]</a> <a href="/user/logout" style="color:#000000;">[Logout]</a>
+	<% else %>
+	<a href="/user/login" style="color:#000000;">[Login]</a>
+	<% end %>
+</div>
+
+<% if flash[:notice] %>
+<div style="font-family:'Trebuchet MS'; color:#FF0000; font-size:14px;">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div id="login" style="width: 400px; margin:auto;">
+<h1>Login To Account</h1>
+<!--creates form, exectues the authenticate method when the submit button is clicked-->
+<%= form_tag :action=>'authenticate' %>
+User name:
+<%= text_field("userform", "username",:size=>"20" ) %><br />
+Password:
+<%= password_field("userform", "password",:size=>"20" )%> <br />
+<input type="submit" value=" Login " />
+</div>

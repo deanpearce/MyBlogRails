@@ -1,0 +1,10 @@
+<div style="width:100%; text-align:right; background-color:#EBEBEB;">
+
+	<% if session[:username] %>
+	Welcome, <%=session[:username]%> &nbsp;<a href="/user/logout" style="color:#000000;">[Dashboard]</a> <a href="/logout" style="color:#000000;">[Logout]</a> -->
+	<% else %>
+	<a href="/user/login" style="color:#000000;">[Login]</a>
+	<% end %>
+
+</div>
+

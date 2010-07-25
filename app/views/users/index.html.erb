@@ -1,0 +1,36 @@
+<div style="width:100%; text-align:right; background-color:#EBEBEB;">
+	<% if session[:username] %>
+	Welcome, <%=session[:username]%> &nbsp;<a href="/posts" style="color:#000000;">[Dashboard]</a> <a href="/user/logout" style="color:#000000;">[Logout]</a>
+	<% else %>
+	<a href="/user/login" style="color:#000000;">[Login]</a>
+	<% end %>
+</div>
+
+<% if session[:username] %>
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Email</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.username %></td>
+    <td><%=h user.password %></td>
+    <td><%=h user.email %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user', new_user_path %>
+<% else %>
+	<p>Unauthorized!</p>
+<% end %>

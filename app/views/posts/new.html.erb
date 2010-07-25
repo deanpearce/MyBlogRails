@@ -1,0 +1,33 @@
+<div style="width:100%; text-align:right; background-color:#EBEBEB;">
+
+	<% if session[:username] %>
+	Welcome, <%=session[:username]%> &nbsp;<a href="/posts" style="color:#000000;">[Dashboard]</a> <a href="/user/logout" style="color:#000000;">[Logout]</a>
+	<% else %>
+	<a href="/user/login" style="color:#000000;">[Login]</a>
+	<% end %>
+</div>
+
+<% if session[:username] %>
+<h1>New post</h1>
+
+<% form_for(@post) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', posts_path %>
+
+<% else %>
+	<p>Unauthorized!</p>
+<% end %>

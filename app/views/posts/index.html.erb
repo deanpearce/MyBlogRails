@@ -1,0 +1,28 @@
+<div style="width:100%; text-align:right; background-color:#EBEBEB;">
+
+	<% if session[:username] %>
+	Welcome, <%=session[:username]%> &nbsp;<a href="/posts/new" style="color:#000000;">[New Post]</a> <a href="/user/logout" style="color:#000000;">[Logout]</a>
+	<% else %>
+	<a href="/user/login" style="color:#000000;">[Login]</a>
+	<% end %>
+
+</div>
+
+<h1 style="text-transform:uppercase;">My Blog Home</h1>
+
+<% @posts.each do |post| %>
+<div class="entry" style="width:800px; border:1px dotted #000000; margin-bottom:5px;">
+	<h2><%=h post.title %></h2>
+	<span>
+		 <%=h post.body %>
+	</span>
+	
+	<br />
+ 	<%= link_to 'Show', post %>
+</div>
+<% end %>
+
+
+
+
+<!-- <%= link_to 'New post', new_post_path %> -->
